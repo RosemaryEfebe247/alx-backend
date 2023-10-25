@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" The fuction that gets and put an item in FIFO 
+""" The fuction that gets and put an item in FIFO
 format
 """
 from base_caching import BaseCaching
