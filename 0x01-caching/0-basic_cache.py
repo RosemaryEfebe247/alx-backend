@@ -11,8 +11,9 @@ class BasicCache(BaseCaching):
     def put(self, key, item):
         """ Function that adds an item
         """
-        if key is not None or item is not None:
-            self.cache_data[key] = item
+        if key is None or item is None:
+            return
+        self.cache_data[key] = item
 
     def get(self, key):
         """ Function to get an item from the dictionary
