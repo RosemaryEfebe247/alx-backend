@@ -8,9 +8,6 @@ class BasicCache(BaseCaching):
     """ A baseCache class that inherits from BasicCaching
     with methods that gets or put a function
     """
-    def __init__(self):
-        super().__init__()
-
     def put(self, key, item):
         """ Function that adds an item
         """
