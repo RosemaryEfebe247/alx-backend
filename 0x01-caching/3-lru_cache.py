@@ -18,7 +18,7 @@ class LRUCache(BaseCaching):
             return
         if key in self.cache_data:
             self.cache_data.move_to_end(key)
-        if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+        elif len(self.cache_data) >= BaseCaching.MAX_ITEMS:
             discarded = list(self.cache_data.keys())[0]
             print(f"DISCARD: {discarded}")
             self.cache_data.popitem(last=False)
@@ -28,4 +28,6 @@ class LRUCache(BaseCaching):
         """ A method that retrieves an item from a Dict"""
         if key in self.cache_data:
             self.cache_data.move_to_end(key)
-        return self.cache_data.get(key, None)
+            return self.cache_data[key]
+        else:
+            return -1
