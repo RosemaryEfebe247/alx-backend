@@ -28,6 +28,4 @@ class LRUCache(BaseCaching):
         """ A method that retrieves an item from a Dict"""
         if key in self.cache_data:
             self.cache_data.move_to_end(key)
-            return self.cache_data[key]
-        else:
-            return -1
+        return self.cache_data.get(key, None)
