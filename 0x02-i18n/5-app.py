@@ -44,7 +44,7 @@ def before_request() -> None:
     g.user = user
 
 
-@babel.localeselector
+# @babel.localeselector
 def get_locale() -> str:
     """ Fuction to determine best match
     with supported languages """
