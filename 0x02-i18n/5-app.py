@@ -43,7 +43,7 @@ def before_request() -> None:
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     """ Fuction to determine best match
     with supported languages """
     locale = request.args.get('locale', '')
@@ -53,7 +53,7 @@ def get_locale():
 
 
 @app.route('/')
-def index():
+def index() -> str:
     """ Render the index.html page """
     return render_template('5-index.html')
 
