@@ -26,16 +26,6 @@ users = {
 }
 
 
-@babel.localeselector
-def get_locale():
-    """ Fuction to determine best match
-    with supported languages """
-    locale = request.args.get('locale', '')
-    if locale in app.config["LANGUAGES"]:
-        return locale
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
-
-
 def get_user() -> Union[Dict, None]:
     """ A user module that returns a user when found"""
     user_id = request.args.get('login_as')
@@ -50,6 +40,16 @@ def before_request() -> None:
 
     user = get_user()
     g.user = user
+
+
+@babel.localeselector
+def get_locale():
+    """ Fuction to determine best match
+    with supported languages """
+    locale = request.args.get('locale', '')
+    if locale in app.config["LANGUAGES"]:
+        return locale
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/')
